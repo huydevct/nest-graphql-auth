@@ -1,3 +1,4 @@
+import { User } from './../users/entities/user.entity';
 import { GqlAuthGuard } from './gql-auth.guard';
 import { UseGuards } from '@nestjs/common';
 import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
@@ -16,5 +17,10 @@ export class AuthResolver {
     @Context() context,
   ) {
     return this.authService.login(context.user);
+  }
+
+  @Mutation(() => User)
+  signup(@Args('loginUserInput') loginUserInput: LoginUserInput) {
+    return this.authService.signup(loginUserInput);
   }
 }

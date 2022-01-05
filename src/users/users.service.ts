@@ -25,11 +25,13 @@ export class UsersService {
     const user = {
       ...createUserInput,
       id: this.users.length + 1,
-    }
+    };
 
     this.users.push(user);
 
-    return user; 
+    // console.log(this.users);
+
+    return user;
   }
 
   findAll() {
