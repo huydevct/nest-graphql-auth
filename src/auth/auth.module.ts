@@ -1,3 +1,4 @@
+import { JwtStrategy } from './jwt-strategy';
 import { UsersModule } from './../users/users.module';
 import { LocalStrategy } from './local.strategy';
 import { Module } from '@nestjs/common';
@@ -15,6 +16,6 @@ import { JwtModule } from '@nestjs/jwt';
       secret: 'hide-me',// process.env.JWT_SECRET
     }),
   ],
-  providers: [AuthService, AuthResolver, LocalStrategy],
+  providers: [AuthService, AuthResolver, LocalStrategy, JwtStrategy],
 })
 export class AuthModule {}
